@@ -1,0 +1,181 @@
+{
+    "profile_name": "Mountain Home Dwarf TEST",
+    "remove_dup_letters": false,
+    "weight_letters": false,
+    "prefixes": [
+        {
+            "content": "Ale",
+            "weight": 1
+        },
+        {
+            "content": "Gravel",
+            "weight": 1
+        },
+        {
+            "content": "Mountain",
+            "weight": 1
+        },
+        {
+            "content": "Gold",
+            "weight": 1
+        },
+        {
+            "content": "Spear",
+            "weight": 1
+        },
+        {
+            "content": "Axe",
+            "weight": 1
+        },
+        {
+            "content": "Stone",
+            "weight": 1
+        },
+        {
+            "content": "Forge",
+            "weight": 1
+        },
+        {
+            "content": "Oak",
+            "weight": 1
+        },
+        {
+            "content": "Shield",
+            "weight": 1
+        },
+        {
+            "content": "Pick",
+            "weight": 1
+        },
+        {
+            "content": "Proud",
+            "weight": 1
+        },
+        {
+            "content": "Iron",
+            "weight": 1
+        },
+        {
+            "content": "Bronze",
+            "weight": 1
+        },
+        {
+            "content": "Might",
+            "weight": 1
+        },
+        {
+            "content": "Thunder",
+            "weight": 1
+        },
+        {
+            "content": "Shovel",
+            "weight": 1
+        },
+        {
+            "content": "Copper",
+            "weight": 1
+        },
+        {
+            "content": "Magma",
+            "weight": 1
+        },
+        {
+            "content": "Sword",
+            "weight": 1
+        },
+        {
+            "content": "Steel",
+            "weight": 1
+        },
+        {
+            "content": "Sickle",
+            "weight": 0.75
+        },
+        {
+            "content": "Strong",
+            "weight": 1
+        },
+        {
+            "content": "Coal",
+            "weight": 1
+        },
+        {
+            "content": "Hammer",
+            "weight": 1
+        }
+    ],
+    "suffixes": [
+        {
+            "content": "Bearer",
+            "weight": 1
+        },
+        {
+            "content": "Seeker",
+            "weight": 1
+        },
+        {
+            "content": "Splitter",
+            "weight": 1
+        },
+        {
+            "content": "Finder",
+            "weight": 1
+        },
+        {
+            "content": "Forge",
+            "weight": 1
+        },
+        {
+            "content": "Walker",
+            "weight": 1
+        },
+        {
+            "content": "Proud",
+            "weight": 1
+        },
+        {
+            "content": "Mane",
+            "weight": 1
+        },
+        {
+            "content": "Mantle",
+            "weight": 1
+        },
+        {
+            "content": "Break",
+            "weight": 1
+        },
+        {
+            "content": "Branch",
+            "weight": 1
+        },
+        {
+            "content": "Gut",
+            "weight": 1
+        },
+        {
+            "content": "Guard",
+            "weight": 1
+        },
+        {
+            "content": "Foot",
+            "weight": 1
+        },
+        {
+            "content": "Keeper",
+            "weight": 1
+        },
+        {
+            "content": "Maker",
+            "weight": 1
+        },
+        {
+            "content": "Bane",
+            "weight": 1
+        },
+        {
+            "content": "Hunter",
+            "weight": 1
+        }
+    ]
+}
