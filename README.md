@@ -3,13 +3,18 @@
 RPG Py Gen is a personal Python library for generating RPG stuff for use during play.
 
 ## Installation
-I have no idea how to install things.
 TODO
 
 ## Usage
-TODO
+mhgen.py is the name generation hub, consult its help.
+
+# Features to come
+* Algorithmic name generation based off of example name lists.
+* Table-lookups, including sub-tables
+* Rolling for NPC gender expression, general appearance, features beyond name, etc.
 
 ## Contributing
+I am not interested in follow contributors at this time
 
 ## License
 MIT License
