@@ -17,7 +17,7 @@ class GenProfile:
     Gen profile used to provide information on how to generate name
     """
     def __init__(self, generator_json):
-        self.title = generator_json['profile_name']
+        self.title = generator_json['section_name']
         self.remove_dupe_letters = generator_json['remove_dup_letters']
         self.weight_letters = generator_json['weight_letters']
         self.prefixes = generator_json['prefixes']

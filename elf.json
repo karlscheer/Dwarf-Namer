@@ -1,151 +1,154 @@
 {
-  "profile_name": "MH Dwarf First Name",
-  "remove_dup_letters": true,
-  "weight_letters": true,
-  "prefixes": [{
-      "content": "Th",
-      "weight": 0.5
+  "profile_name": "Elf Names",
+  "sections": [{
+    "section_name": "first_name",
+    "remove_dup_letters": true,
+    "weight_letters": true,
+    "prefixes": [{
+        "content": "Th",
+        "weight": 0.5
+      },
+      {
+        "content": "Ar",
+        "weight": 0.5
+      },
+      {
+        "content": "El",
+        "weight": 1
+      },
+      {
+        "content": "Ha",
+        "weight": 1
+      },
+      {
+        "content": "Ce",
+        "weight": 1
+      },
+      {
+        "content": "Le",
+        "weight": 1
+      }
+    ],
+    "vowels": [{
+        "content": "a",
+        "weight": 1
+      },
+      {
+        "content": "e",
+        "weight": 1
+      },
+      {
+        "content": "i",
+        "weight": 1
+      },
+      {
+        "content": "o",
+        "weight": 0.75
+      },
+      {
+        "content": "u",
+        "weight": 0.5
+      },
+      {
+        "content": "y",
+        "weight": 0.25
+      }
+    ],
+    "joiners": [{
+        "content": "c",
+        "weight": 1
+      },
+      {
+        "content": "b",
+        "weight": 1
+      },
+      {
+        "content": "r",
+        "weight": 1
+      },
+      {
+        "content": "th",
+        "weight": 1.25
+      },
+      {
+        "content": "r",
+        "weight": 1
+      },
+      {
+        "content": "m",
+        "weight": 1
+      },
+      {
+        "content": "t",
+        "weight": 1
+      },
+      {
+        "content": "l",
+        "weight": 1
+      },
+      {
+        "content": "sh",
+        "weight": 0.8
+      }
+    ],
+    "alt_vowels": {
+      "a": "\u00e1",
+      "e": "\u00e9",
+      "i": "\u00ed",
+      "o": "\u00f3",
+      "u": "\u00fa"
     },
-    {
-      "content": "Ar",
-      "weight": 0.5
-    },
-    {
-      "content": "El",
-      "weight": 1
-    },
-    {
-      "content": "Ha",
-      "weight": 1
-    },
-    {
-      "content": "Ce",
-      "weight": 1
-    },
-    {
-      "content": "Le",
-      "weight": 1
+    "suffixes": [{
+        "content": "wyn",
+        "weight": 1
+      },
+      {
+        "content": "in",
+        "weight": 1
+      },
+      {
+        "content": "th",
+        "weight": 1
+      },
+      {
+        "content": "ne",
+        "weight": 1
+      },
+      {
+        "content": "ia",
+        "weight": 1
+      },
+      {
+        "content": "as",
+        "weight": 1
+      },
+      {
+        "content": "ir",
+        "weight": 1
+      },
+      {
+        "content": "en",
+        "weight": 1
+      },
+      {
+        "content": "uil",
+        "weight": 1
+      }
+    ],
+    "reroll_by_lenth": {
+      "other": 0.05,
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "5": 0.8,
+      "6": 0.5,
+      "7": 0.3,
+      "8": 0.1,
+      "9": 0,
+      "10": 0,
+      "11": 0
     }
-  ],
-  "vowels": [{
-      "content": "a",
-      "weight": 1
-    },
-    {
-      "content": "e",
-      "weight": 1
-    },
-    {
-      "content": "i",
-      "weight": 1
-    },
-    {
-      "content": "o",
-      "weight": 0.75
-    },
-    {
-      "content": "u",
-      "weight": 0.5
-    },
-    {
-      "content": "y",
-      "weight": 0.25
-    }
-  ],
-  "joiners": [{
-      "content": "c",
-      "weight": 1
-    },
-    {
-      "content": "b",
-      "weight": 1
-    },
-    {
-      "content": "r",
-      "weight": 1
-    },
-    {
-      "content": "th",
-      "weight": 1.25
-    },
-    {
-      "content": "r",
-      "weight": 1
-    },
-    {
-      "content": "m",
-      "weight": 1
-    },
-    {
-      "content": "t",
-      "weight": 1
-    },
-    {
-      "content": "l",
-      "weight": 1
-    },
-    {
-      "content": "sh",
-      "weight": 0.8
-    }
-  ],
-  "alt_vowels": {
-    "a": "\u00e1",
-    "e": "\u00e9",
-    "i": "\u00ed",
-    "o": "\u00f3",
-    "u": "\u00fa"
-  },
-  "suffixes": [{
-      "content": "wyn",
-      "weight": 1
-    },
-    {
-      "content": "in",
-      "weight": 1
-    },
-    {
-      "content": "th",
-      "weight": 1
-    },
-    {
-      "content": "ne",
-      "weight": 1
-    },
-    {
-      "content": "ia",
-      "weight": 1
-    },
-    {
-      "content": "as",
-      "weight": 1
-    },
-    {
-      "content": "ir",
-      "weight": 1
-    },
-    {
-      "content": "en",
-      "weight": 1
-    },
-    {
-      "content": "uil",
-      "weight": 1
-    }
-  ],
-  "reroll_by_lenth": {
-    "other": 0.05,
-    "0": 1,
-    "1": 1,
-    "2": 1,
-    "3": 1,
-    "4": 1,
-    "5": 0.8,
-    "6": 0.5,
-    "7": 0.3,
-    "8": 0.1,
-    "9": 0,
-    "10": 0,
-    "11": 0
-  }
+  }]
 }

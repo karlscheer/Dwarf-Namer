@@ -9,55 +9,66 @@ from . import tableroller
 class NameAssembler:
     """ This uses a "gen profile" object to create names based off of the rules
     provided in the profile itself """
-    def __init__(self, seed=None, profile=None):
+    def __init__(self, seed=None, profile_json=None):
 
-        if profile is None:
-            profile = genprofile.GenProfile()
+        if profile_json is None:
+            raise "Needs JSON profiles to work"
+
+        self.profiles = {}
+        for section in profile_json['sections']:
+            self.profiles[section['section_name']] = genprofile.GenProfile(section)
 
         # self.syllables = 0
-        self.name = ""
+        self.name = profile_json['profile_name']
         self.seed = seed
-        self.profile = profile
 
         # Keep the seed if you want to remember the dwarf you made and re-gen later
         random.seed(a=seed)
 
-    def generate_name(self):
+    def generate_all(self):
+        total = []
+        for profile in self.profiles.keys():
+            total.append(self.generate_name(profile))
+        return " ".join(total)
+
+    def generate_name(self, section):
         """Using the profile provided, generate a fancy given name"""
-        self.name = self.profile.select_prefix(self.name)
-        suffix = self.profile.select_suffix(self.name)
-        logging.info("initial %s suffix %s", self.name, suffix)
+        profile = self.profiles[section]
+
+        new_name = profile.select_prefix("")
+        suffix = profile.select_suffix(new_name)
+        logging.info("initial %s suffix %s", new_name, suffix)
 
         # A certain number of names just get lenthened. Two letter names are not
         # accepted. Some number of <4 letter names are just cut out as well.
-        while self.profile.determine_reroll(len(self.name)+len(suffix)):
-            if self.name[-1] in self.profile.vowels_list():
-                self.name += self.profile.select_joiner(self.name+suffix)
+        while profile.determine_reroll(len(new_name)+len(suffix)):
+            if new_name[-1] in profile.vowels_list():
+                new_name += profile.select_joiner(new_name+suffix)
             else:
-                self.name += self.profile.select_vowel(self.name+suffix)
-                self.name += self.profile.select_joiner(self.name+suffix)
+                new_name += profile.select_vowel(new_name+suffix)
+                new_name += profile.select_joiner(new_name+suffix)
 
-        if ((self.name[-1] not in self.profile.vowels_list()) and
-                (suffix[0] not in self.profile.vowels_list())):
-            self.name += self.profile.select_vowel(self.name+suffix)
-            logging.info("%s suffix glue", self.name)
-        self.name += suffix
-        logging.info("pre-cleanup %s", self.name)
+        if ((new_name[-1] not in profile.vowels_list()) and
+                (suffix[0] not in profile.vowels_list())):
+            new_name += profile.select_vowel(new_name+suffix)
+            logging.info("%s suffix glue", new_name)
+        new_name += suffix
+        logging.info("pre-cleanup %s", new_name)
 
         # Put diacritics on the second of two vowels if there are two vowels in a row
-        for i, char in enumerate(self.name):
-            if ((char in self.profile.vowels_list()) and
-                    (i + 1 < len(self.name)) and
-                    (self.name[i + 1] in self.profile.vowels_list())):
-                split = list(self.name)
-                split[i + 1] = self.profile.alt_vowels[split[i + 1]]
-                self.name = ''.join(split)
+        for i, char in enumerate(new_name):
+            if ((char in profile.vowels_list()) and
+                    (i + 1 < len(new_name)) and
+                    (new_name[i + 1] in profile.vowels_list())):
+                split = list(new_name)
+                split[i + 1] = profile.alt_vowels[split[i + 1]]
+                new_name = ''.join(split)
 
         # TODO Walk through and remove dupes
         # TODO Walk through and remove awkward letter combos
 
-        self.name = self.name.lower().title()
-        return self.name
+        new_name = new_name.lower().title()
+        return new_name
 
 def main():
     """Diagnostic runner thing"""

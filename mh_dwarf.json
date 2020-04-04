@@ -1,0 +1,333 @@
+{
+  "profile_name": " MH Dwarf Names",
+  "sections": [{
+      "section_name": "first_name",
+      "remove_dup_letters": true,
+      "weight_letters": true,
+      "prefixes": [{
+          "content": "ur",
+          "weight": 0.5
+        },
+        {
+          "content": "er",
+          "weight": 0.5
+        },
+        {
+          "content": "do",
+          "weight": 1
+        },
+        {
+          "content": "ba",
+          "weight": 1
+        },
+        {
+          "content": "ka",
+          "weight": 1
+        }
+      ],
+      "vowels": [{
+          "content": "a",
+          "weight": 0.5
+        },
+        {
+          "content": "e",
+          "weight": 0.25
+        },
+        {
+          "content": "i",
+          "weight": 0.5
+        },
+        {
+          "content": "o",
+          "weight": 1.5
+        },
+        {
+          "content": "u",
+          "weight": 1.5
+        }
+      ],
+      "joiners": [{
+          "content": "k",
+          "weight": 1
+        },
+        {
+          "content": "d",
+          "weight": 1
+        },
+        {
+          "content": "b",
+          "weight": 1
+        },
+        {
+          "content": "r",
+          "weight": 1
+        },
+        {
+          "content": "th",
+          "weight": 1.25
+        },
+        {
+          "content": "g",
+          "weight": 1
+        },
+        {
+          "content": "r",
+          "weight": 1
+        },
+        {
+          "content": "m",
+          "weight": 1
+        },
+        {
+          "content": "t",
+          "weight": 1
+        },
+        {
+          "content": "z",
+          "weight": 0.25
+        },
+        {
+          "content": "l",
+          "weight": 1
+        },
+        {
+          "content": "sh",
+          "weight": 0.8
+        }
+      ],
+      "alt_vowels": {
+        "a": "\u00e1",
+        "e": "\u00e9",
+        "i": "\u00ed",
+        "o": "\u00f3",
+        "u": "\u00fa"
+      },
+      "suffixes": [{
+          "content": "li",
+          "weight": 1.25
+        },
+        {
+          "content": "z",
+          "weight": 0.2
+        },
+        {
+          "content": "ro",
+          "weight": 0.5
+        },
+        {
+          "content": "in",
+          "weight": 1.25
+        },
+        {
+          "content": "da",
+          "weight": 1
+        },
+        {
+          "content": "st",
+          "weight": 1
+        },
+        {
+          "content": "sh",
+          "weight": 0.8
+        },
+        {
+          "content": "ng",
+          "weight": 0.5
+        },
+        {
+          "content": "ch",
+          "weight": 0.5
+        }
+      ],
+      "reroll_by_lenth": {
+        "other": 0.05,
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 0.75,
+        "4": 0.6,
+        "5": 0.1,
+        "6": 0.075
+      }
+    },
+    {
+      "section_name": "surname",
+      "remove_dup_letters": false,
+      "weight_letters": false,
+      "prefixes": [{
+          "content": "Ale",
+          "weight": 1
+        },
+        {
+          "content": "Gravel",
+          "weight": 1
+        },
+        {
+          "content": "Mountain",
+          "weight": 1
+        },
+        {
+          "content": "Gold",
+          "weight": 1
+        },
+        {
+          "content": "Spear",
+          "weight": 1
+        },
+        {
+          "content": "Axe",
+          "weight": 1
+        },
+        {
+          "content": "Stone",
+          "weight": 1
+        },
+        {
+          "content": "Forge",
+          "weight": 1
+        },
+        {
+          "content": "Oak",
+          "weight": 1
+        },
+        {
+          "content": "Shield",
+          "weight": 1
+        },
+        {
+          "content": "Pick",
+          "weight": 1
+        },
+        {
+          "content": "Proud",
+          "weight": 1
+        },
+        {
+          "content": "Iron",
+          "weight": 1
+        },
+        {
+          "content": "Bronze",
+          "weight": 1
+        },
+        {
+          "content": "Might",
+          "weight": 1
+        },
+        {
+          "content": "Thunder",
+          "weight": 1
+        },
+        {
+          "content": "Shovel",
+          "weight": 1
+        },
+        {
+          "content": "Copper",
+          "weight": 1
+        },
+        {
+          "content": "Magma",
+          "weight": 1
+        },
+        {
+          "content": "Sword",
+          "weight": 1
+        },
+        {
+          "content": "Steel",
+          "weight": 1
+        },
+        {
+          "content": "Sickle",
+          "weight": 0.75
+        },
+        {
+          "content": "Strong",
+          "weight": 1
+        },
+        {
+          "content": "Coal",
+          "weight": 1
+        },
+        {
+          "content": "Hammer",
+          "weight": 1
+        }
+      ],
+      "suffixes": [{
+          "content": "Bearer",
+          "weight": 1
+        },
+        {
+          "content": "Seeker",
+          "weight": 1
+        },
+        {
+          "content": "Splitter",
+          "weight": 1
+        },
+        {
+          "content": "Finder",
+          "weight": 1
+        },
+        {
+          "content": "Forge",
+          "weight": 1
+        },
+        {
+          "content": "Walker",
+          "weight": 1
+        },
+        {
+          "content": "Proud",
+          "weight": 1
+        },
+        {
+          "content": "Mane",
+          "weight": 1
+        },
+        {
+          "content": "Mantle",
+          "weight": 1
+        },
+        {
+          "content": "Break",
+          "weight": 1
+        },
+        {
+          "content": "Branch",
+          "weight": 1
+        },
+        {
+          "content": "Gut",
+          "weight": 1
+        },
+        {
+          "content": "Guard",
+          "weight": 1
+        },
+        {
+          "content": "Foot",
+          "weight": 1
+        },
+        {
+          "content": "Keeper",
+          "weight": 1
+        },
+        {
+          "content": "Maker",
+          "weight": 1
+        },
+        {
+          "content": "Bane",
+          "weight": 1
+        },
+        {
+          "content": "Hunter",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}
