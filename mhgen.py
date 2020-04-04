@@ -6,6 +6,7 @@ Currently supported traits:
 """
 import logging
 import json
+from pathlib import Path
 # argparse for making this tool usable
 import argparse
 
@@ -45,12 +46,18 @@ def main():
     if args.only is not None:
         generate = args.only
 
-    file = 'mh_dwarf.json'
+    # Path/file handling
+    path = "./generator/profiles/"
+    file = "mh_dwarf.json"
     if args.json:
         file = args.json
 
-
-    with open(file, 'r') as infile:
+    found = ""
+    for test_file in (file, path+file):
+        test = Path(test_file)
+        if test.is_file():
+            found = test_file
+    with open(found, 'r') as infile:
         profile_data = json.loads(infile.read())
         infile.close()
 
