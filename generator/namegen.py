@@ -4,7 +4,6 @@ My custom name generator tool. It's fuzzy. There's no official algorithm
 import random
 import logging
 from . import genprofile
-from . import tableroller
 
 class NameAssembler:
     """ This uses a "gen profile" object to create names based off of the rules
@@ -26,8 +25,11 @@ class NameAssembler:
         random.seed(a=seed)
 
     def generate_all(self):
+        """
+        Walk through all the generators at once and combine them into a single name
+        """
         total = []
-        for profile in self.profiles.keys():
+        for profile in self.profiles:
             total.append(self.generate_name(profile))
         return " ".join(total)
 
@@ -69,12 +71,3 @@ class NameAssembler:
 
         new_name = new_name.lower().title()
         return new_name
-
-def main():
-    """Diagnostic runner thing"""
-    name = NameAssembler()
-    test = [name.generate_name() for _ in range(1, 25)]
-    print(test)
-
-if __name__ == "__main__":
-    main()

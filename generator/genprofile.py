@@ -195,7 +195,7 @@ class GenProfile:
             total += entry['weight']
         return total
 
-"""Here's a scrap about profile writing"""
+#Here's a scrap about profile writing
     # prefixes = [{'content':'ur', 'weight':.5}, {'content':'er', 'weight':.5},
     #             {'content':'do', 'weight':1}, {'content':'ba', 'weight':1},
     #             {'content':'ka', 'weight':1}]
