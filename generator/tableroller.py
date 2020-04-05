@@ -34,7 +34,7 @@ class TableRoller:
         else:
             raise "Couldn't match the die type"
 
-        if (table is not None and jsons_tables is not None):
+        if (table is not None and json_tables is not None):
             raise "cannot have both types of tables"
 
         if table is not None:
@@ -45,7 +45,7 @@ class TableRoller:
         elif json_tables is not None:
             self.tables = json_tables
 
-    def lookup(self, entry=None):
+    def lookup(self, table, entry=None):
         """Do an internal roll and provide a table entry back"""
         if entry is None:
             if self.type == 'fitd':
@@ -57,8 +57,7 @@ class TableRoller:
                 entry = roller.roll_sum(self.num, self.die)
             else:
                 raise "unable to identify roll type"
-
-        return self.table[entry-1]
+        return self.tables[table]['results'][entry-1]
 #
 # test = TableRoller(roll="3D", table=["a", "b", "c", "d", "e", "f"])
 # print(test.rollFitD())

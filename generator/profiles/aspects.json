@@ -43,22 +43,22 @@
     "aspect_name": "ability",
     "results": [{
         "content": "Fully able",
-        "weight": 2
+        "weight": 5
       },
       {
-        "content": "Leg injury",
+        "content": "Mobility limitation",
         "weight": 0.25
       },
       {
-        "content": "Face injury",
+        "content": "Sense limitation",
         "weight": 0.25
       },
       {
-        "content": "Arm injury",
+        "content": "Fine motor limitation",
         "weight": 0.25
       },
       {
-        "content": "Head injury",
+        "content": "Non-neurotypical",
         "weight": 0.25
       }
     ]
