@@ -1,3 +1,6 @@
+"""
+Just a simple dice-roller test
+"""
 import generator.tableroller as tableroller
 
 def main():

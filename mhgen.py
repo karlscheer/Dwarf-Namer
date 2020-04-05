@@ -12,6 +12,7 @@ import argparse
 
 # Core name-making functionality
 import generator.namegen as namegen
+import generator.aspects as aspects
 
 def main():
     """ Handles random generation arguments. This is the primary interface.
@@ -32,8 +33,9 @@ def main():
     parser.add_argument("-o", "--only", metavar="SEGMENT",
                         help="Only generate one name type", default=None)
     parser.add_argument("-j", "--json", help="For providing an overriding json file")
-    parser.add_argument("-p", "--personal_aspects", help="""Also generate personal aspects about
-                                                            the name such as gender identity""")
+    parser.add_argument("-p", "--personal_aspects", action='store_true',
+                        help="""Also generate personal aspects about
+                                the name such as gender identity""")
 
     # Finish it!
     args = parser.parse_args()
@@ -64,21 +66,34 @@ def main():
         profile_data = json.loads(infile.read())
         infile.close()
 
+    if args.personal_aspects:
+        file = "./generator/profiles/aspects.json"
+        print(file)
+        with open(file, 'r') as infile:
+            aspect_json = json.loads(infile.read())
+            infile.close()
+        aspect_gen = aspects.AspectProfile(aspect_json)
+
     # Generate the names
     generator = namegen.NameAssembler(profile_json=profile_data)
-    names = []
+    results = []
     for _ in range(0, args.number):
+        char_aspects = {}
+        if args.personal_aspects:
+            char_aspects = aspect_gen.generate_all()
+
         if generate == 'ALL':
-            name = generator.generate_all()
+            char_aspects['name'] = generator.generate_all()
         else:
-            name = generator.generate_name(generate)
-        names.append(name)
+            char_aspects['name'] = generator.generate_name(generate)
+        results.append(char_aspects)
 
     if args.clean:
-        for name in names:
-            print(name)
+        for result in results:
+            print("{}".format(result['name']))
+            _ = [print("\t{}: {}".format(key.title(), result[key])) for key in result if key != 'name']
     else:
-        print(names)
+        print(results)
 
-
-main()
+if __name__ == "__main__":
+    main()

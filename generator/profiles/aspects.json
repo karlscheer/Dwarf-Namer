@@ -1,0 +1,66 @@
+{
+  "gender":{
+    "aspect_name": "gender",
+    "results": [{
+        "content": "Female",
+        "weight": 1
+      },
+      {
+        "content": "Male",
+        "weight": 1
+      },
+      {
+        "content": "Non-binary",
+        "weight": 0.5
+      }
+    ]
+  },
+  "age": {
+    "aspect_name": "age",
+    "results": [{
+        "content": "Young adult",
+        "weight": 1
+      },
+      {
+        "content": "Adult",
+        "weight": 2
+      },
+      {
+        "content": "Middle-aged",
+        "weight": 1
+      },
+      {
+        "content": "Older",
+        "weight": 0.5
+      },
+      {
+        "content": "Elderly",
+        "weight": 0.25
+      }
+    ]
+  },
+  "ability": {
+    "aspect_name": "ability",
+    "results": [{
+        "content": "Fully able",
+        "weight": 2
+      },
+      {
+        "content": "Leg injury",
+        "weight": 0.25
+      },
+      {
+        "content": "Face injury",
+        "weight": 0.25
+      },
+      {
+        "content": "Arm injury",
+        "weight": 0.25
+      },
+      {
+        "content": "Head injury",
+        "weight": 0.25
+      }
+    ]
+  }
+}
