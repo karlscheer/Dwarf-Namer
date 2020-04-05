@@ -32,6 +32,8 @@ def main():
     parser.add_argument("-o", "--only", metavar="SEGMENT",
                         help="Only generate one name type", default=None)
     parser.add_argument("-j", "--json", help="For providing an overriding json file")
+    parser.add_argument("-p", "--personal_aspects", help="""Also generate personal aspects about
+                                                            the name such as gender identity""")
 
     # Finish it!
     args = parser.parse_args()
@@ -42,6 +44,7 @@ def main():
     else:
         logging.basicConfig(level=logging.WARNING)
 
+    # Profile management
     generate = 'ALL'
     if args.only is not None:
         generate = args.only
@@ -61,14 +64,14 @@ def main():
         profile_data = json.loads(infile.read())
         infile.close()
 
-    dwarf_name_generator = namegen.NameAssembler(profile_json=profile_data)
-
+    # Generate the names
+    generator = namegen.NameAssembler(profile_json=profile_data)
     names = []
     for _ in range(0, args.number):
         if generate == 'ALL':
-            name = dwarf_name_generator.generate_all()
+            name = generator.generate_all()
         else:
-            name = dwarf_name_generator.generate_name(generate)
+            name = generator.generate_name(generate)
         names.append(name)
 
     if args.clean:

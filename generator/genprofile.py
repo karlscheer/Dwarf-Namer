@@ -70,19 +70,11 @@ class GenProfile:
         """
 
         options = self.__build_gen_choices(self.prefixes, self.joiners)
-        total = self.__gen_build_options_weight(options)
-
-        selection = random.uniform(0, total)
-        logging.info("Total possible %s selected %s", total, selection)
-        logging.info("Options %s", options)
-
-        for item in options:
-            selection -= item['weight']
-            logging.info("At %s Total possible %s selected %s", item['content'], total, selection)
-            if selection <= 0:
-                return item['content']
-
-        raise "I must have selected something"
+        # total = self.__gen_build_options_weight(options)
+        self.gen_reduce_odds_from_string(options, current)
+        weights = [item['weight'] for item in options]
+        selection = random.choices(options, weights=weights, k=1).pop()
+        return selection['content']
 
     def select_joiner(self, current):
         """
@@ -91,47 +83,30 @@ class GenProfile:
         """
         if self.joiners is None:
             return ""
-
-        total = 0
         options = self.__build_gen_choices(self.joiners)
+        if len(options) == 0:
+            return ""
+
         self.gen_reduce_odds_from_string(options, current)
-
-        for item in options:
-            found = current.count(item['content'])
-            if found:
-                logging.info("In name %s found %s", current, item['content'])
-                item = {'content':item['content'], 'weight':min(0, (item['weight']/found))}
-            total += item['weight']
-
-        selection = random.uniform(0, total)
-
-        for item in self.joiners:
-            selection -= item['weight']
-            if selection <= 0:
-                return item['content']
-        raise "All generators should return something"
+        weights = [item['weight'] for item in options]
+        selection = random.choices(options, weights=weights, k=1).pop()
+        return selection['content']
 
     def select_suffix(self, current):
         """
         This takes in the current string to allow for future weighting based
         off of existing use
         """
-        total = 0
+        if self.suffixes is None:
+            return ""
         options = self.__build_gen_choices(self.suffixes)
-
         if len(options) == 0:
             return ""
 
         self.gen_reduce_odds_from_string(options, current)
-        total = self.__gen_build_options_weight(options)
-
-        selection = random.uniform(0, total)
-
-        for item in options:
-            selection -= item['weight']
-            if selection <= 0:
-                return item['content']
-        raise "I must have selected something"
+        weights = [item['weight'] for item in options]
+        selection = random.choices(options, weights=weights, k=1).pop()
+        return selection['content']
 
     def select_vowel(self, current):
         """
@@ -140,26 +115,14 @@ class GenProfile:
         """
         if self.vowels is None:
             return ""
-
-        total = 0
         options = self.__build_gen_choices(self.vowels)
         if len(options) == 0:
             return ""
 
-        for item in options:
-            found = current.count(item['content'])
-            if found:
-                logging.info("In name %s found %s", current, item['content'])
-                item = {'content':item['content'], 'weight':min(0, (item['weight']/found))}
-            total += item['weight']
-
-        selection = random.uniform(0, total)
-
-        for item in options:
-            selection -= item['weight']
-            if selection <= 0:
-                return item['content']
-        raise "I must have selected something"
+        self.gen_reduce_odds_from_string(options, current)
+        weights = [item['weight'] for item in options]
+        selection = random.choices(options, weights=weights, k=1).pop()
+        return selection['content']
 
     def vowels_list(self):
         """ Create a list of vowels for comparison reasons """
@@ -188,33 +151,6 @@ class GenProfile:
                 options.append(entry)
         return options
 
-    @staticmethod
-    def __gen_build_options_weight(options):
-        total = 0
-        for entry in options:
-            total += entry['weight']
-        return total
-
-#Here's a scrap about profile writing
-    # prefixes = [{'content':'ur', 'weight':.5}, {'content':'er', 'weight':.5},
-    #             {'content':'do', 'weight':1}, {'content':'ba', 'weight':1},
-    #             {'content':'ka', 'weight':1}]
-    # vowels = [{'content':'a', 'weight':.5}, {'content':'e', 'weight':.25},
-    #           {'content':'i', 'weight':.5}, {'content':'o', 'weight':1.5},
-    #           {'content':'u', 'weight':1.5}]
-    # alt_vowels = {'a': "á", "e": "é", "i": "í", "o": "ó", "u": "ú"}
-    # joiners = [{'content':'k', 'weight':1}, {'content':'d', 'weight':1},
-    #            {'content':'b', 'weight':1}, {'content':'r', 'weight':1},
-    #            {'content':'th', 'weight':1.25}, {'content':'g', 'weight':1},
-    #            {'content':'r', 'weight':1}, {'content':'m', 'weight':1},
-    #            {'content':'t', 'weight':1}, {'content':'z', 'weight':.25},
-    #            {'content':'l', 'weight':1}, {'content':'sh', 'weight':.8}]
-    # suffixes = [{'content':'li', 'weight':1.25}, {'content':'z', 'weight':.2},
-    #             {'content':'ro', 'weight':.5}, {'content':'in', 'weight':1.25},
-    #             {'content':'da', 'weight':1}, {'content':'st', 'weight':1},
-    #             {'content':'sh', 'weight':.8}, {'content':'ng', 'weight':.5},
-    #             {'content':'ch', 'weight':.5}]
-    # reroll_by_lenth = {'other':.05, 0:1, 1:1, 2:1, 3:.75, 4:.60, 5:.1, 6:.075 }
     # dwarf_profile = {
     #     'profile_name':"Mountain Home Dwarf",
     #     'remove_dup_letters':True,

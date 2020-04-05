@@ -5,12 +5,15 @@ import re
 import random
 from enum import Enum
 
-FITD_FAILURE = range(1,4)
-FITD_PARTIAL = range(4,6)
+FITD_FAILURE = range(1, 4)
+FITD_PARTIAL = range(4, 6)
 FITD_SUCCESS = [6]
 FITD_CRITICAL = [7]
 
 class RollResult(Enum):
+    """
+    For when results on a spectrum relating to categories, use these
+    """
     CRITIAL_FAILURE = 0
     FAILURE = 1
     PARTIAL_SUCCESS = 2
@@ -65,6 +68,10 @@ class TableRoller:
         return result
 
     def roll_fitd(self):
+        """
+        Forged in the dark rolling: Roll xD6, keep the highest. Two sixes are are
+        critical success.
+        """
         result = 0
         print("Rolling ", self.num)
         for _ in range(0, self.num):
@@ -88,6 +95,10 @@ class TableRoller:
         return result
 
     def roll_d66(self):
+        """
+        D66 roller, which is a 36-result table where one D6 is the 1s digit and
+        the other is the 10s
+        """
         result = 0
         rolled_die = self.die
 
@@ -109,6 +120,7 @@ class TableRoller:
                 entry = self.roll_fitd()
             elif self.type == 'd66':
                 entry = self.roll_d66()
+                raise "D66 table lookup doesn't work yet"
             elif self.type == 'sum':
                 entry = self.roll_sum()
             else:
