@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Interface into rpg py gen. This is for generating RPG characters .
 
@@ -13,6 +14,7 @@ import argparse
 # Core name-making functionality
 import generator.namegen as namegen
 import generator.aspects as aspects
+
 
 def main():
     """ Handles random generation arguments. This is the primary interface.
@@ -32,7 +34,8 @@ def main():
                         action='store_true')
     parser.add_argument("-o", "--only", metavar="SEGMENT",
                         help="Only generate one name type", default=None)
-    parser.add_argument("-j", "--json", help="For providing an overriding json file")
+    parser.add_argument(
+        "-j", "--json", help="For providing an overriding json file")
     parser.add_argument("-p", "--personal_aspects", action='store_true',
                         help="""Also generate personal aspects about
                                 the name such as gender identity""")
@@ -62,16 +65,16 @@ def main():
         test = Path(test_file)
         if test.is_file():
             found = test_file
-    with open(found, 'r') as infile:
-        profile_data = json.loads(infile.read())
-        infile.close()
+    with open(found, 'r') as in_file:
+        profile_data = json.loads(in_file.read())
+        in_file.close()
 
     if args.personal_aspects:
         file = "./generator/profiles/aspects.json"
         print(file)
-        with open(file, 'r') as infile:
-            aspect_json = json.loads(infile.read())
-            infile.close()
+        with open(file, 'r') as in_file:
+            aspect_json = json.loads(in_file.read())
+            in_file.close()
         aspect_gen = aspects.AspectProfile(aspect_json)
 
     # Generate the names
@@ -91,9 +94,11 @@ def main():
     if args.clean:
         for result in results:
             print("{}".format(result['name']))
-            _ = [print("\t{}: {}".format(key.title(), result[key])) for key in result if key != 'name']
+            _ = [print("\t{}: {}".format(key.title(), result[key]))
+                 for key in result if key != 'name']
     else:
         print(results)
+
 
 if __name__ == "__main__":
     main()
